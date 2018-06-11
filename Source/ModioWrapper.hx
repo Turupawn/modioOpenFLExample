@@ -1,6 +1,6 @@
 class ModioWrapper
 {
-  #if linux
+  #if (linux && x64)
     public static var init:Int->Int->String->Void = cpp.Lib.load("modioWrapperLinux","modioWrapperInit",3);
     public static var process:Void->Void = cpp.Lib.load("modioWrapperLinux","modioWrapperProcess",0);
     public static var isLoggedIn:Void->Bool = cpp.Lib.load("modioWrapperLinux","modioWrapperIsLoggedIn",0);

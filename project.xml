@@ -10,6 +10,10 @@
 	
 	<assets path="Assets" rename="assets" />
 
-	<ndll name="modioWrapperLinux" if="linux"/>
+	<!-- Begin mod.io setup -->
+        <set name="x64" />
+	<haxedef name="x64" if="x64"/>
+	<ndll name="modioWrapperLinux" if="linux x64"/>
+	<!-- End mod.io setup -->
 	
 </project>
