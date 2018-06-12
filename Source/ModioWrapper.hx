@@ -8,4 +8,12 @@ class ModioWrapper
     public static var emailRequest:String->(Int->Void)->Void = cpp.Lib.load("modioWrapperLinux","modioWrapperEmailRequest",2);
     public static var emailExchange:String->(Int->Void)->Void = cpp.Lib.load("modioWrapperLinux","modioWrapperEmailExchange",2);
   #end
+  #if (windows && x86)
+    public static var init:Int->Int->String->Void = cpp.Lib.load("modioWrapperWindows_x86","modioWrapperInit",3);
+    public static var process:Void->Void = cpp.Lib.load("modioWrapperWindows_x86","modioWrapperProcess",0);
+    public static var isLoggedIn:Void->Bool = cpp.Lib.load("modioWrapperWindows_x86","modioWrapperIsLoggedIn",0);
+    public static var logout:Void->Bool = cpp.Lib.load("modioWrapperWindows_x86","modioWrapperLogout",0);
+    public static var emailRequest:String->(Int->Void)->Void = cpp.Lib.load("modioWrapperWindows_x86","modioWrapperEmailRequest",2);
+    public static var emailExchange:String->(Int->Void)->Void = cpp.Lib.load("modioWrapperWindows_x86","modioWrapperEmailExchange",2);
+  #end
 }
