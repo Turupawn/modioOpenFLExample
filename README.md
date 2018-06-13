@@ -95,7 +95,7 @@ Logs out the user.
 ModioWrapper.logout();
 ```
 
-## Step 3 building and running
+## Step 3: Building and running
 
 * Complie and run using `openfl build windows` or `openfl build linux`. Mac OS is not supported yet.
 * Add the corresponding library from the provided `Lib/` folder into your exported `bin/` directory, next to your binary executable.
