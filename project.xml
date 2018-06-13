@@ -11,14 +11,8 @@
 	<assets path="Assets" rename="assets" />
 
 	<!-- Begin mod.io setup -->
-	<haxedef name="no_console" if="windows" />
-    <set name="x86"/>
-	<!-- <set name="x64" /> -->
-	<haxedef name="HXCPP_M64" if="x64"/>
-	<haxedef name="x86" if="x86"/>
-	<haxedef name="x64" if="x64"/>
-	<ndll name="modioWrapperLinux_x64" if="linux x64"/>
-	<ndll name="modioWrapperWindows_x86" if="windows x86"/>
+	<ndll name="modioWrapperLinux_x64" if="linux"/>
+	<ndll name="modioWrapperWindows_x86" if="windows"/>
 	<!-- End mod.io setup -->
 	
 </project>
