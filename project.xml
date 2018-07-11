@@ -13,6 +13,7 @@
 	<!-- Begin mod.io setup -->
 	<ndll name="modioWrapperLinux_x64" if="linux"/>
 	<ndll name="modioWrapperWindows_x86" if="windows"/>
+	<ndll name="modioWrapperMacOs" if="mac"/>
 	<!-- End mod.io setup -->
 	
 </project>
