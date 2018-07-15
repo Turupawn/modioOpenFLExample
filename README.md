@@ -9,6 +9,9 @@ Follow these steps to integrate the wrapper into your OpenFL project.
 * Place the `ModioWrapper.hx` on your `Sources/` directory.
 * Place the `.ndll` files on your project's directory
 * Add the following in your `project.xml`
+
+**Note:** You will need to install the [Visual C++ Redistributable for Visual Studio](https://www.microsoft.com/en-US/download/details.aspx?id=48145) in order to use the the `modio.dll` library on your windows project.
+
 ```
 <ndll name="modioWrapperLinux_x64" if="linux"/>
 <ndll name="modioWrapperWindows_x86" if="windows"/>
