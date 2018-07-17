@@ -20,7 +20,7 @@ Follow these steps to integrate the [mod.io SDK Haxe wrapper](https://github.com
 ## Step 2: The code
 
 * Import the ModioWrapper class by adding `import ModioWrapper;` in your game's source code.
-* Add the mod.io functionality, so far the following functions are available:
+* Add the mod.io functionality, this are some of functions available now. For a complete list check out the [modioHaxe wiki](https://github.com/Turupawn/modioHaxe/wiki).:
 
 ### General purpose functions
 
@@ -97,8 +97,6 @@ Logs out the user.
 ```
 ModioWrapper.logout();
 ```
-
-For a complete list of functions wrapped so far, check out the [modioHaxe wiki](https://github.com/Turupawn/modioHaxe/wiki).
 
 ## Step 3: Building and running
 
