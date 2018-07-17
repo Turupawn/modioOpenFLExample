@@ -1,7 +1,7 @@
 
 # OpenFL integration
 
-Follow these steps to integrate the wrapper into your OpenFL project.
+Follow these steps to integrate the [mod.io SDK Haxe wrapper](https://github.com/Turupawn/modioHaxe) into your OpenFL project.
 
 ## Step 1: The setup
 
@@ -97,6 +97,8 @@ Logs out the user.
 ```
 ModioWrapper.logout();
 ```
+
+For a complete list of functions wrapped so far, check out the [modioHaxe wiki](https://github.com/Turupawn/modioHaxe/wiki).
 
 ## Step 3: Building and running
 
