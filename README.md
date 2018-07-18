@@ -108,6 +108,8 @@ ModioWrapper.logout();
 
 ## Example #1: Authentication and downloads
 
+[Go to example](/Source/Authentication.hx)
+
 In this example, you can authenticate by providing your email and then your seucurity code sent to your email. Once that is done, automatic downloads will occur on the background.
 
 ![Authtentication](/Screenshots/authentication.png?raw=true "Authtentication")
@@ -115,6 +117,8 @@ In this example, you can authenticate by providing your email and then your seuc
 ![Automatic downloads](/Screenshots/automatic_downloads.png?raw=true "Automatic downloads")
 
 ## Example #2: Mod browser
+
+[Go to example](/Source/ModBrowser.hx)
 
 Still WIP but in this example you will be able to browse, subscribe and unsubscribe from mods in-game.
 
