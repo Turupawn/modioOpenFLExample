@@ -2,8 +2,8 @@
 <project>
 	
 	<meta title="mod.io example" package="org.openfl.samples.modioexample" version="1.0.0" company="OpenFL" />
-	<app main="Main" path="Export" file="modioExample" />
-	<!--<app main="ModBrowser" path="Export" file="modioExample" />-->
+	<!--<app main="Main" path="Export" file="modioExample" />-->
+	<app main="ModBrowser" path="Export" file="modioExample" />
 	
 	<source path="Source" />
 	
