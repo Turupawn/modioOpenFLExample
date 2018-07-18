@@ -1,12 +1,6 @@
 
 # OpenFL integration
 
-![Authtentication](/Screenshots/authentication.png?raw=true "Authtentication")
-
-![Automatic downloads](/Screenshots/automatic_downloads.png?raw=true "Automatic downloads")
-
-![Automatic downloads](/Screenshots/mod_browser.png?raw=true "Automatic downloads")
-
 Follow these steps to integrate the [mod.io SDK Haxe wrapper](https://github.com/Turupawn/modioHaxe) into your OpenFL project.
 
 ## Step 1: The setup
@@ -109,3 +103,19 @@ ModioWrapper.logout();
 * Complie and run using `openfl build windows` or `openfl build linux`. Mac OS is not supported yet.
 * Add the corresponding library (`libmodio.so` or `modio.dll`) from the provided `Lib/` folder into your exported `bin/` directory, next to your binary executable.
 * Now, you should be able to execute the game.
+
+# Examples
+
+## Example #1: Authentication and downloads
+
+In this example, you can authenticate by providing your email and then your seucurity code sent to your email. Once that is done, automatic downloads will occur on the background.
+
+![Authtentication](/Screenshots/authentication.png?raw=true "Authtentication")
+
+![Automatic downloads](/Screenshots/automatic_downloads.png?raw=true "Automatic downloads")
+
+## Example #2: Mod browser
+
+Still WIP but in this example you will be able to browse, subscribe and unsubscribe from mods in-game.
+
+![Mod Browser](/Screenshots/mod_browser.png?raw=true "Mod Browser")
