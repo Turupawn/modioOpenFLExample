@@ -1,7 +1,7 @@
 
 # OpenFL integration
 
-Follow these steps to integrate the wrapper into your OpenFL project.
+Follow these steps to integrate the [mod.io SDK Haxe wrapper](https://github.com/Turupawn/modioHaxe) into your OpenFL project.
 
 ## Step 1: The setup
 
@@ -20,7 +20,7 @@ Follow these steps to integrate the wrapper into your OpenFL project.
 ## Step 2: The code
 
 * Import the ModioWrapper class by adding `import ModioWrapper;` in your game's source code.
-* Add the mod.io functionality, so far the following functions are available:
+* Add the mod.io functionality, this are some of functions available now. For a complete list check out the [modioHaxe wiki](https://github.com/Turupawn/modioHaxe/wiki).:
 
 ### General purpose functions
 
