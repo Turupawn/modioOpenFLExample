@@ -11,7 +11,7 @@ import openfl.text.TextFieldType;
 import openfl.events.KeyboardEvent;
 import openfl.ui.Keyboard;
 
-class Main extends Sprite {
+class Authentication extends Sprite {
 	
 	private var user_input = "";
 	private var state = "waiting for email";
