@@ -1,6 +1,12 @@
 
 # OpenFL integration
 
+![Authtentication](/Screenshots/authentication.png?raw=true "Authtentication")
+
+![Automatic downloads](/Screenshots/automatic_downloads.png?raw=true "Automatic downloads")
+
+![Automatic downloads](/Screenshots/mod_browser.png?raw=true "Automatic downloads")
+
 Follow these steps to integrate the [mod.io SDK Haxe wrapper](https://github.com/Turupawn/modioHaxe) into your OpenFL project.
 
 ## Step 1: The setup
