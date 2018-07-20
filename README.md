@@ -1,7 +1,7 @@
 
 # OpenFL integration
 
-Follow these steps to integrate the [mod.io SDK Haxe wrapper](https://github.com/Turupawn/modioHaxe) into your OpenFL project.
+This is an example on how to add [mod.io](https://mod.io/) functionality to your OpenFL project. It uses the [mod.io SDK Haxe wrapper](https://github.com/Turupawn/modioHaxe) available on [Github](https://github.com/Turupawn/modioHaxe). The wrapper simplifies the [mod.io API](https://docs.mod.io/#getting-started) usage by using the [mod.io SDK](https://apps.mod.io/sdk) as intermediary. The mod.io's [getting started guide](https://apps.mod.io/guides/getting-started) is a good place to start if you are completely new to mod.io and it's API.
 
 ## Step 1: The setup
 
