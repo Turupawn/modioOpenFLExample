@@ -30,7 +30,7 @@ class ModDisplay extends Sprite {
     button.addEventListener(MouseEvent.CLICK, function onButtonClick(e:MouseEvent) {
       //TODO subscribe on click
     });
-  
+
     addChild(mod_name);
     addChild(mod_description);
     addChild(button);
@@ -39,18 +39,18 @@ class ModDisplay extends Sprite {
   public function loadImage(url:String) {
     var httpInstance = new haxe.Http(url);
     httpInstance.onData = function(data) {
-      var file_output:FileOutput = sys.io.File.write("assets/" + this.id + ".jpg", true);
-      file_output.writeString(data);
-      trace(data.length + " bytes downloaded");
-      file_output.close();
-      BitmapData.loadFromFile ("assets/" + this.id + ".jpg").onComplete (function (bitmapData) {
-        trace ("loaded");
-        addChild(new Bitmap (bitmapData));
-      }).onError (function (e) {
-        trace ("error");
-      }).onProgress (function (loaded, total) {
-        trace ("loaded " + loaded + "/" + total);
-      });
+    var file_output:FileOutput = sys.io.File.write("assets/" + this.id + ".jpg", true);
+    file_output.writeString(data);
+    trace(data.length + " bytes downloaded");
+    file_output.close();
+    BitmapData.loadFromFile ("assets/" + this.id + ".jpg").onComplete (function (bitmapData) {
+    trace ("loaded");
+    addChild(new Bitmap (bitmapData));
+    }).onError (function (e) {
+    trace ("error");
+    }).onProgress (function (loaded, total) {
+    trace ("loaded " + loaded + "/" + total);
+    });
     }
     httpInstance.request();
   }
@@ -59,9 +59,9 @@ class ModDisplay extends Sprite {
     this.id = id;
     this.mod_name.text = name;
     if(description.length < 50)
-      this.mod_description.text = description;
+    this.mod_description.text = description;
     else
-      this.mod_description.text = description.substr(0,50) + "...";        
+    this.mod_description.text = description.substr(0,50) + "...";        
     this.loadImage(image_url);
   }
 }
@@ -79,7 +79,7 @@ class ModBrowserMenu extends Sprite {
   public function getMods(page:Int){
     ModioWrapper.getMods(ModioWrapper.MODIO_SORT_BY_RATING, mods_per_page, page * mods_per_page, function(mods:Array<Dynamic>, response_code:Int) {
       if(response_code == 200)
-			{
+      {
         for (i in 0...mods_per_page)
         {
           mod_displays[i].display(mods[i].id, mods[i].name, mods[i].description, mods[i].logo.thumb_320x180);
@@ -88,9 +88,8 @@ class ModBrowserMenu extends Sprite {
     });
   }
 
-	public function new (mods_per_page:Int, mod_name_text_format:TextFormat, mod_description_text_format:TextFormat) {
-		
-		super ();
+  public function new (mods_per_page:Int, mod_name_text_format:TextFormat, mod_description_text_format:TextFormat) {
+    super ();
 
     this.mods_per_page = mods_per_page;
     this.mod_name_text_format = mod_name_text_format;
@@ -115,7 +114,7 @@ class ModBrowserMenu extends Sprite {
     right_button.x = 750;
     left_button.y = 550;
     right_button.y = 550;
-    
+
     addChild(left_button);
     addChild(right_button);
 
@@ -125,24 +124,24 @@ class ModBrowserMenu extends Sprite {
       mod_displays[i] = mod_display;
       addChild(mod_display);
     }
-    
+
     getMods(current_page);    
-	}
+  }
 }
 
 class ModBrowser extends ModBrowserMenu {
-	public function new () {
-		ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
-    
+  public function new () {
+    ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+
     var mod_name_text_format:TextFormat = new TextFormat();
     mod_name_text_format.size = 15;
     var mod_description_text_format:TextFormat = new TextFormat();
     super (3, mod_name_text_format, mod_description_text_format);
 
     addEventListener (Event.ENTER_FRAME, this_onEnterFrame);
-	}
+  }
 
   private function this_onEnterFrame (event:Event):Void {
-		ModioWrapper.process();
-	}
+    ModioWrapper.process();
+  }
 }
