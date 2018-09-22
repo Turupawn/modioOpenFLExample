@@ -23,9 +23,9 @@ class Authentication extends Sprite {
 
 	public function displayAuthenticatedUser()
 	{
-		ModioWrapper.getAuthenticatedUser(function(response_code:Int, user:Dynamic)
+		ModioWrapper.getAuthenticatedUser(function(response:Dynamic, user:Dynamic)
 		{
-			if(response_code == 200)
+			if(response.code == 200)
 			{
 				current_user_text.text = "Hello " + user.username + "!";
 			}else
@@ -153,9 +153,9 @@ class Authentication extends Sprite {
 				user_input = "";
 
 				// To authenticate, the user provides his email. A security code will be sent there
-				ModioWrapper.emailRequest(email, function (resonse_code:Int)
+				ModioWrapper.emailRequest(email, function (response:Dynamic)
 				{
-					if (resonse_code == 200)
+					if (response.code == 200)
 					{
 						authentication_text.text = "Please enter the 5 digit code sent to your email:";
 						state = "waiting for code";
@@ -173,9 +173,9 @@ class Authentication extends Sprite {
 				user_input = "";
 				
 				// To complete the authentication, the user enters the security code sent to his email
-				ModioWrapper.emailExchange(security_code, function (resonse_code:Int)
+				ModioWrapper.emailExchange(security_code, function (response:Dynamic)
 				{
-					if (resonse_code == 200)
+					if (response.code == 200)
 					{
 						authentication_text.text = "Code exchanged! You are now logged in.";
 						text_field.visible = false;

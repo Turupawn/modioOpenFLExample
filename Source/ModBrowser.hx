@@ -29,6 +29,10 @@ class ModDisplay extends Sprite {
     button.x = 580;
     button.addEventListener(MouseEvent.CLICK, function onButtonClick(e:MouseEvent) {
       //TODO subscribe on click
+      ModioWrapper.subscribeToMod(this.id, function(response:Dynamic)
+      {
+        trace("resi: " + response.code);
+      });
     });
 
     addChild(mod_name);
@@ -70,22 +74,40 @@ class ModBrowserMenu extends Sprite {
 
   var mods_per_page = 0;
   var current_page = 0;
+  var total_pages = 0;
   var mod_displays:haxe.ds.Vector<ModDisplay>;
   var left_button:Sprite = new Sprite();
   var right_button:Sprite = new Sprite();
   var mod_name_text_format:TextFormat;
   var mod_description_text_format:TextFormat;
+  var page_text = new TextField();
 
-  public function getMods(page:Int){
-    ModioWrapper.getMods(ModioWrapper.MODIO_SORT_BY_RATING, mods_per_page, page * mods_per_page, function(mods:Array<Dynamic>, response_code:Int) {
-      if(response_code == 200)
+  public function getAllMods(page:Int){
+    ModioWrapper.getAllMods(ModioWrapper.MODIO_SORT_BY_RATING, mods_per_page, page * mods_per_page, function(response:Dynamic, mods:Array<Dynamic>) {
+      
+      for (i in 0...mod_displays.length)
       {
-        for (i in 0...mods_per_page)
+        mod_displays[i].visible = false;
+      }
+
+      if(response.code == 200)
+      {
+        for (i in 0...mods.length)
         {
+          mod_displays[i].visible = true;
           mod_displays[i].display(mods[i].id, mods[i].name, mods[i].description, mods[i].logo.thumb_320x180);
         }
+        total_pages = Math.ceil(response.result_total/mods_per_page);
+        updatePageText();
       }
     });
+  }
+
+  public function updatePageText()
+  {
+    page_text.text = "" + (current_page + 1) + "/" + total_pages;
+    page_text.x = 600;
+    page_text.y = 550;
   }
 
   public function new (mods_per_page:Int, mod_name_text_format:TextFormat, mod_description_text_format:TextFormat) {
@@ -95,19 +117,25 @@ class ModBrowserMenu extends Sprite {
     this.mod_name_text_format = mod_name_text_format;
     this.mod_description_text_format = mod_description_text_format;
 
-    mod_displays = new haxe.ds.Vector(mods_per_page);
+    this.mod_displays = new haxe.ds.Vector(mods_per_page);
 
     left_button.addChild(new Bitmap (Assets.getBitmapData ("assets/left.png")));
     right_button.addChild(new Bitmap (Assets.getBitmapData ("assets/right.png")));
 
     left_button.addEventListener(MouseEvent.CLICK, function onButtonClick(e:MouseEvent) {
       current_page -= 1;
-      getMods(current_page);
+      if (current_page >= 0)
+        getAllMods(current_page);
+      else
+        current_page = 0;
     });
 
     right_button.addEventListener(MouseEvent.CLICK, function onButtonClick(e:MouseEvent) {
       current_page += 1;
-      getMods(current_page);
+      if (current_page < total_pages)
+        getAllMods(current_page);
+      else
+        current_page = total_pages - 1;
     });
 
     left_button.x = 700;
@@ -125,7 +153,9 @@ class ModBrowserMenu extends Sprite {
       addChild(mod_display);
     }
 
-    getMods(current_page);    
+    addChild(page_text);
+
+    getAllMods(current_page);    
   }
 }
 
